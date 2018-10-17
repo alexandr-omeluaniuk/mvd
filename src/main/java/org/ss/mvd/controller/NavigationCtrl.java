@@ -23,19 +23,20 @@
  */
 package org.ss.mvd.controller;
 
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.ModelAndView;
 
 /**
  * Navigation controller.
  * @author ss
  */
-@RestController
+@Controller
 @RequestMapping("/")
 public class NavigationCtrl {
     @RequestMapping(method = RequestMethod.GET)
-    String welcome() {
-        return "Hellp";
+    ModelAndView welcome() {
+        return new ModelAndView("redirect:/apps/WrittenStatement/index.html");
     }
 }
