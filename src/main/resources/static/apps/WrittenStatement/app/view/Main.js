@@ -1,26 +1,18 @@
 Ext.define('WrittenStatement.view.Main', {
     extend: 'Ext.container.Container',
-    requires:[
+    requires: [
         'Ext.tab.Panel',
-        'Ext.layout.container.Border'
+        'Ext.layout.container.Border',
+        'Ext.container.Container'
     ],
-    
     xtype: 'app-main',
-
     layout: {
-        type: 'border'
+        type: 'fit'
     },
-
     items: [{
-        region: 'west',
-        xtype: 'panel',
-        title: 'west',
-        width: 150
-    },{
-        region: 'center',
-        xtype: 'tabpanel',
-        items:[{
-            title: 'Center Tab 1'
+            xtype: 'tabpanel',
+            items: [{
+                    title: 'Center Tab 1'
+                }]
         }]
-    }]
 });

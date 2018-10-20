@@ -870,6 +870,7 @@ Ext.ClassManager.addNameAlternateMappings({
   "WrittenStatement.Application": [],
   "WrittenStatement.controller.Main": [],
   "WrittenStatement.view.Main": [],
+  "WrittenStatement.view.Settings": [],
   "WrittenStatement.view.Viewport": []
 });
 
@@ -1889,6 +1890,9 @@ Ext.ClassManager.addNameAliasMappings({
   "WrittenStatement.controller.Main": [],
   "WrittenStatement.view.Main": [
     "widget.app-main"
+  ],
+  "WrittenStatement.view.Settings": [
+    "widget.app-settings"
   ],
   "WrittenStatement.view.Viewport": []
 });

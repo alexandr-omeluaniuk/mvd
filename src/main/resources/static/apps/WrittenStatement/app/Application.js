@@ -8,7 +8,7 @@ Ext.define('WrittenStatement.Application', {
     ],
 
     controllers: [
-        // TODO: add controllers here
+        'Main'
     ],
 
     stores: [
