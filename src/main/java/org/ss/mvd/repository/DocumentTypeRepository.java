@@ -21,12 +21,16 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package org.ss.mvd.rest;
+package org.ss.mvd.repository;
+
+import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.rest.core.annotation.RepositoryRestResource;
+import org.ss.mvd.entity.DocumentType;
 
 /**
  *
  * @author ss
  */
-public class JobTypeREST {
-    
+@RepositoryRestResource(collectionResourceRel = "doctype", path = "doctype")
+public interface DocumentTypeRepository extends CrudRepository<DocumentType, Long> {
 }

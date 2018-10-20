@@ -23,11 +23,12 @@
  */
 module org.ss.mvd {
     requires java.persistence;
-    requires spring.boot;
-    requires spring.boot.autoconfigure;
     requires java.validation;
     requires spring.web;
     requires spring.core;
     requires spring.context;
     requires spring.webmvc;
+    requires spring.boot;
+    requires spring.boot.autoconfigure;
+    requires spring.data.commons;
 }
