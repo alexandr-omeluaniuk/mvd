@@ -25,7 +25,8 @@
 Ext.define('WrittenStatement.view.Settings', {
     extend: 'Ext.container.Container',
     requires: [
-        'Ext.tab.Panel'
+        'Ext.tab.Panel',
+        'WrittenStatement.view.settings.doctype.DocumentTypeGrid'
     ],
     xtype: 'app-settings',
     layout: {
@@ -35,7 +36,7 @@ Ext.define('WrittenStatement.view.Settings', {
             region: 'center',
             xtype: 'tabpanel',
             items: [{
-                    title: 'hello'
+                    xtype: 'documentTypeGrid'
                 }]
         }]
 });

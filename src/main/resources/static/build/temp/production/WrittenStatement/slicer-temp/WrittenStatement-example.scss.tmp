@@ -741,9 +741,13 @@ $include-extthemeneptune-toolbar-paging: true;
 $include-extthemeneptune-toolbar-toolbar: true;
 $include-writtenstatement-application: true;
 $include-writtenstatement-controller-main: true;
+$include-writtenstatement-controller-settings-documenttype: true;
+$include-writtenstatement-model-documenttype: true;
 $include-writtenstatement-view-main: true;
 $include-writtenstatement-view-settings: true;
 $include-writtenstatement-view-viewport: true;
+$include-writtenstatement-view-settings-doctype-documenttypeform: true;
+$include-writtenstatement-view-settings-doctype-documenttypegrid: true;
 /* including package ext-theme-base */
 @import '../../../../../ext/packages/ext-theme-base/sass/etc/all';
 /* including package ext-theme-neutral */

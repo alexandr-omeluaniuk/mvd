@@ -869,9 +869,13 @@ Ext.ClassManager.addNameAlternateMappings({
   "ExtThemeNeptune.toolbar.Toolbar": [],
   "WrittenStatement.Application": [],
   "WrittenStatement.controller.Main": [],
+  "WrittenStatement.controller.settings.DocumentType": [],
+  "WrittenStatement.model.DocumentType": [],
   "WrittenStatement.view.Main": [],
   "WrittenStatement.view.Settings": [],
-  "WrittenStatement.view.Viewport": []
+  "WrittenStatement.view.Viewport": [],
+  "WrittenStatement.view.settings.doctype.DocumentTypeForm": [],
+  "WrittenStatement.view.settings.doctype.DocumentTypeGrid": []
 });
 
 Ext.ClassManager.addNameAliasMappings({
@@ -1888,13 +1892,21 @@ Ext.ClassManager.addNameAliasMappings({
   "ExtThemeNeptune.toolbar.Toolbar": [],
   "WrittenStatement.Application": [],
   "WrittenStatement.controller.Main": [],
+  "WrittenStatement.controller.settings.DocumentType": [],
+  "WrittenStatement.model.DocumentType": [],
   "WrittenStatement.view.Main": [
     "widget.app-main"
   ],
   "WrittenStatement.view.Settings": [
     "widget.app-settings"
   ],
-  "WrittenStatement.view.Viewport": []
+  "WrittenStatement.view.Viewport": [],
+  "WrittenStatement.view.settings.doctype.DocumentTypeForm": [
+    "widget.documentTypeForm"
+  ],
+  "WrittenStatement.view.settings.doctype.DocumentTypeGrid": [
+    "widget.documentTypeGrid"
+  ]
 });
 
 Ext.setVersion("ext-theme-base", "4.2.2");

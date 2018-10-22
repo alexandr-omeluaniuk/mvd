@@ -8,7 +8,7 @@ Ext.define('WrittenStatement.Application', {
     ],
 
     controllers: [
-        'Main'
+        'Main', 'settings.DocumentType'
     ],
 
     stores: [

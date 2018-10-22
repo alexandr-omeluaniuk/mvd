@@ -31,4 +31,5 @@ module org.ss.mvd {
     requires spring.boot;
     requires spring.boot.autoconfigure;
     requires spring.data.commons;
+    requires spring.data.rest.core;
 }
