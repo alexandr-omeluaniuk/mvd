@@ -21,22 +21,30 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-module org.ss.mvd {
-    requires java.persistence;
-    requires java.validation;
-    requires java.sql;
-    requires tomcat.embed.core;
-    requires spring.beans;
-    requires spring.web;
-    requires spring.core;
-    requires spring.context;
-    requires spring.webmvc;
-    requires spring.boot;
-    requires spring.boot.autoconfigure;
-    requires spring.data.commons;
-    requires spring.data.rest.core;
-    requires spring.data.jpa;
-    requires spring.security.config;
-    requires spring.security.core;
-    requires spring.security.web;
+package org.ss.mvd.security;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
+import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
+
+/**
+ * Spring security configuration.
+ * @author ss
+ */
+@EnableWebSecurity
+public class WebSecurityConfig implements WebMvcConfigurer {
+    @Autowired
+    private UserDetailsService userDetailsService;
+    @Bean
+    public UserDetailsService userDetailsService() {
+        return userDetailsService;
+    }
+    @Bean
+    public BCryptPasswordEncoder passwordEncoder() {
+        BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder();
+        return bCryptPasswordEncoder;
+    }
 }

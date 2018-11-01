@@ -45,7 +45,7 @@ public class DocumentType implements Serializable {
 // ============================== FIELDS ======================================
     /** ID. */
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     /** Type name. */
     @NotNull

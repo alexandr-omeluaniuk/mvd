@@ -21,22 +21,21 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-module org.ss.mvd {
-    requires java.persistence;
-    requires java.validation;
-    requires java.sql;
-    requires tomcat.embed.core;
-    requires spring.beans;
-    requires spring.web;
-    requires spring.core;
-    requires spring.context;
-    requires spring.webmvc;
-    requires spring.boot;
-    requires spring.boot.autoconfigure;
-    requires spring.data.commons;
-    requires spring.data.rest.core;
-    requires spring.data.jpa;
-    requires spring.security.config;
-    requires spring.security.core;
-    requires spring.security.web;
+package org.ss.mvd.security;
+
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.stereotype.Service;
+
+/**
+ * Security service implementation.
+ * @author ss
+ */
+@Service
+class SecurityServiceImpl implements SecurityService {
+    @Override
+    public UserDetails loadUserByUsername(final String string) throws UsernameNotFoundException {
+        System.out.println(string);
+        return null;
+    }
 }

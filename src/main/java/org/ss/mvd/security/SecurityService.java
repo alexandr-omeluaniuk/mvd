@@ -21,22 +21,13 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-module org.ss.mvd {
-    requires java.persistence;
-    requires java.validation;
-    requires java.sql;
-    requires tomcat.embed.core;
-    requires spring.beans;
-    requires spring.web;
-    requires spring.core;
-    requires spring.context;
-    requires spring.webmvc;
-    requires spring.boot;
-    requires spring.boot.autoconfigure;
-    requires spring.data.commons;
-    requires spring.data.rest.core;
-    requires spring.data.jpa;
-    requires spring.security.config;
-    requires spring.security.core;
-    requires spring.security.web;
+package org.ss.mvd.security;
+
+import org.springframework.security.core.userdetails.UserDetailsService;
+
+/**
+ * Security service.
+ * @author ss
+ */
+public interface SecurityService extends UserDetailsService {
 }

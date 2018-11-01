@@ -21,22 +21,25 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-module org.ss.mvd {
-    requires java.persistence;
-    requires java.validation;
-    requires java.sql;
-    requires tomcat.embed.core;
-    requires spring.beans;
-    requires spring.web;
-    requires spring.core;
-    requires spring.context;
-    requires spring.webmvc;
-    requires spring.boot;
-    requires spring.boot.autoconfigure;
-    requires spring.data.commons;
-    requires spring.data.rest.core;
-    requires spring.data.jpa;
-    requires spring.security.config;
-    requires spring.security.core;
-    requires spring.security.web;
+package org.ss.mvd.security;
+
+import java.io.IOException;
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import org.springframework.security.core.AuthenticationException;
+import org.springframework.security.web.AuthenticationEntryPoint;
+import org.springframework.stereotype.Component;
+
+/**
+ * Authentication entry point.
+ * @author ss
+ */
+@Component
+class AuthEntryPoint implements AuthenticationEntryPoint {
+    @Override
+    public void commence(HttpServletRequest hsr, HttpServletResponse hsr1,
+            AuthenticationException ae) throws IOException, ServletException {
+        hsr1.sendError(HttpServletResponse.SC_UNAUTHORIZED);
+    }
 }
