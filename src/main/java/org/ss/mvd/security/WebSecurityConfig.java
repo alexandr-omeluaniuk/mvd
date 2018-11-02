@@ -23,10 +23,8 @@
  */
 package org.ss.mvd.security;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
-import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
@@ -36,12 +34,6 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
  */
 @EnableWebSecurity
 public class WebSecurityConfig implements WebMvcConfigurer {
-    @Autowired
-    private UserDetailsService userDetailsService;
-    @Bean
-    public UserDetailsService userDetailsService() {
-        return userDetailsService;
-    }
     @Bean
     public BCryptPasswordEncoder passwordEncoder() {
         BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder();

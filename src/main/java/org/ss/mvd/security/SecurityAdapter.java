@@ -46,15 +46,13 @@ public class SecurityAdapter extends WebSecurityConfigurerAdapter {
         http.authorizeRequests().anyRequest().authenticated().and()
                 .formLogin().permitAll().and()
                 .logout().invalidateHttpSession(true);
-                //.and().exceptionHandling().authenticationEntryPoint(entryPoint);
     }
     @Override
-    protected void configure(AuthenticationManagerBuilder auth)
-            throws Exception {
+    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         auth.jdbcAuthentication()
                 .usersByUsernameQuery("SELECT email as username, password as password, "
                         + "is_active as enabled FROM user WHERE email=?")
-                .authoritiesByUsernameQuery("SELECT u.email as username, r.role as authority "
+                .authoritiesByUsernameQuery("SELECT u.email as username, r.name as authority "
                         + "FROM user u LEFT JOIN role r ON u.role_id=r.id WHERE u.email=?")
                 .dataSource(dataSource).passwordEncoder(bCryptPasswordEncoder);
     }
