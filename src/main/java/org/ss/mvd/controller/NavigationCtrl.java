@@ -37,6 +37,6 @@ import org.springframework.web.servlet.ModelAndView;
 public class NavigationCtrl {
     @RequestMapping(value = "/welcome", method = RequestMethod.GET)
     ModelAndView welcome() {
-        return new ModelAndView("redirect:/apps/WrittenStatement/index.html");
+        return new ModelAndView("redirect:/apps/DP/index.html");
     }
 }
