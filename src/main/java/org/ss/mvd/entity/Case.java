@@ -26,39 +26,40 @@ package org.ss.mvd.entity;
 import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 /**
- * Document type.
+ * Document.
  * @author ss
  */
 @Entity
-@Table(name = "mvd_document_type")
-public class DocumentType implements Serializable {
+@Table(name = "mvd_case")
+public class Case implements Serializable {
     /** Default UID. */
     private static final long serialVersionUID = 1L;
-// ============================== FIELDS ======================================
+// ================================ FIELDS ====================================
     /** ID. */
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    /** Type name. */
+    /** User-friendly identifier. */
     @NotNull
-    @Size(max = 100)
-    @Column(name = "name", length = 100)
-    private String name;
-    /**
-     * Days before document expiration date,
-     * when user should get notification.
-     */
-    @Column(name = "days_for_notification")
-    private Integer daysForNotification;
-// ============================== SET & GET ===================================
+    @Size(max = 10)
+    @Column(name = "identifier", length = 10)
+    private String identifier;
+    /** Case type. */
+    @JoinColumn(name = "case_type_id")
+    @ManyToOne(fetch = FetchType.EAGER)
+    private CaseType type;
+// ================================ SET & GET =================================
     /**
      * @return the id
      */
@@ -72,28 +73,28 @@ public class DocumentType implements Serializable {
         this.id = id;
     }
     /**
-     * @return the name
+     * @return the identifier
      */
-    public String getName() {
-        return name;
+    public String getIdentifier() {
+        return identifier;
     }
     /**
-     * @param name the name to set
+     * @param identifier the identifier to set
      */
-    public void setName(String name) {
-        this.name = name;
+    public void setIdentifier(String identifier) {
+        this.identifier = identifier;
     }
     /**
-     * @return the daysForNotification
+     * @return the type
      */
-    public Integer getDaysForNotification() {
-        return daysForNotification;
+    public CaseType getType() {
+        return type;
     }
     /**
-     * @param daysForNotification the daysForNotification to set
+     * @param type the type to set
      */
-    public void setDaysForNotification(Integer daysForNotification) {
-        this.daysForNotification = daysForNotification;
+    public void setType(CaseType type) {
+        this.type = type;
     }
 // ============================================================================
     @Override
@@ -104,15 +105,15 @@ public class DocumentType implements Serializable {
     }
     @Override
     public boolean equals(Object object) {
-        if (!(object instanceof DocumentType)) {
+        if (!(object instanceof Case)) {
             return false;
         }
-        DocumentType other = (DocumentType) object;
+        Case other = (Case) object;
         return !((this.id == null && other.id != null)
                 || (this.id != null && !this.id.equals(other.id)));
     }
     @Override
     public String toString() {
-        return "org.ss.mvd.entity.DocumentType[ id=" + getId() + " ]";
+        return "org.ss.mvd.entity.Case[ id=" + getId() + " ]";
     }
 }

@@ -25,12 +25,12 @@ package org.ss.mvd.repository;
 
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.rest.core.annotation.RepositoryRestResource;
-import org.ss.mvd.entity.DocumentType;
+import org.ss.mvd.entity.CaseType;
 
 /**
  *
  * @author ss
  */
 @RepositoryRestResource(collectionResourceRel = "doctype", path = "doctype")
-public interface DocumentTypeRepository extends CrudRepository<DocumentType, Long> {
+public interface DocumentTypeRepository extends CrudRepository<CaseType, Long> {
 }
