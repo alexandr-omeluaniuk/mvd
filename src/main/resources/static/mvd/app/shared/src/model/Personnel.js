@@ -1,6 +1,6 @@
 Ext.define('MVD.model.Personnel', {
-	extend: 'MVD.model.Base',
-	fields: [
-		'name', 'email', 'phone'
-	]
+    extend: 'MVD.model.Base',
+    fields: [
+        'name', 'email', 'phone'
+    ]
 });
