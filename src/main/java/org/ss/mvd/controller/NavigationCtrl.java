@@ -25,8 +25,6 @@ package org.ss.mvd.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.servlet.ModelAndView;
 
 /**
  * Navigation controller.
@@ -35,8 +33,8 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 @RequestMapping("/")
 public class NavigationCtrl {
-    @RequestMapping(value = "/welcome", method = RequestMethod.GET)
-    ModelAndView welcome() {
-        return new ModelAndView("redirect:/apps/DP/index.html");
-    }
+//    @RequestMapping(value = "/", method = RequestMethod.GET)
+//    ModelAndView welcome() {
+//        return new ModelAndView("redirect:/index.html");
+//    }
 }
