@@ -78,6 +78,20 @@ Ext.define('MVD.util.Shared', {
         add: {
             en: 'Add',
             ru: 'Добавить'
+        },
+        saveChanges: {
+            en: 'Save changes',
+            ru: 'Сохранить изменения'
+        }
+    },
+    caseType: {
+        daysForNotification: {
+            en: 'The day before the case is closed, when you need to send a notification',
+            ru: 'Выслать уведомление за число дней до истечения срока документа'
+        },
+        periodOfExecution: {
+            en: 'Period of execution, days',
+            ru: 'Срок исполнения документа, в днях'
         }
     }
     // ========================================================================

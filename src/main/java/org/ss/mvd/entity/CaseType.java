@@ -58,6 +58,10 @@ public class CaseType implements Serializable {
      */
     @Column(name = "days_for_notification")
     private Integer daysForNotification;
+    /** Period of execution. */
+    @NotNull
+    @Column(name = "period_of_execution", nullable = false)
+    private Integer periodOfExecution;
 // ============================== SET & GET ===================================
     /**
      * @return the id
@@ -94,6 +98,18 @@ public class CaseType implements Serializable {
      */
     public void setDaysForNotification(Integer daysForNotification) {
         this.daysForNotification = daysForNotification;
+    }
+    /**
+     * @return the periodOfExecution
+     */
+    public Integer getPeriodOfExecution() {
+        return periodOfExecution;
+    }
+    /**
+     * @param periodOfExecution the periodOfExecution to set
+     */
+    public void setPeriodOfExecution(Integer periodOfExecution) {
+        this.periodOfExecution = periodOfExecution;
     }
 // ============================================================================
     @Override

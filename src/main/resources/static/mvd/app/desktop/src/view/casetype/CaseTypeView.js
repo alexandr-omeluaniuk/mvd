@@ -31,6 +31,7 @@ Ext.define('MVD.view.casetype.CaseTypeView', {
     requires: [
         'Ext.grid.Grid',
         'Ext.grid.plugin.CellEditing',
+        'Ext.grid.plugin.Editable',
 
         'MVD.store.CaseType',
         'MVD.view.casetype.CaseTypeViewController',
@@ -46,9 +47,17 @@ Ext.define('MVD.view.casetype.CaseTypeView', {
     layout: 'fit',
     items: [{
             xtype: 'grid',
-            plugins: {
-                gridcellediting: {
-                    selectOnEdit: true
+            platformConfig: {
+                desktop: {
+                    plugins: {
+                        gridcellediting: true
+                    }
+                },
+
+                '!desktop': {
+                    plugins: {
+                        grideditable: true
+                    }
                 }
             },
             selectable: {
@@ -63,12 +72,44 @@ Ext.define('MVD.view.casetype.CaseTypeView', {
                     text: Shared.get(Shared.common.name),
                     flex: 1,
                     dataIndex: 'name',
-                    editable: true
+                    editable: true,
+                    editor: {
+                        xtype: 'textfield',
+                        allowBlank: false,
+                        required: true
+                    }
+                }, {
+                    text: Shared.get(Shared.caseType.periodOfExecution),
+                    width: 300,
+                    dataIndex: 'periodOfExecution',
+                    editable: true,
+                    editor: {
+                        xtype: 'numberfield',
+                        required: true,
+                        minValue: 1
+                    }
+                }, {
+                    text: Shared.get(Shared.caseType.daysForNotification),
+                    width: 300,
+                    dataIndex: 'daysForNotification',
+                    editable: true,
+                    editor: {
+                        xtype: 'numberfield',
+                        minValue: 0
+                    }
                 }]
         }],
     tools: [{
+            xtype: 'button',
+            text: Shared.get(Shared.common.saveChanges),
+            ui: 'action',
+            iconCls: 'x-fa fa-save',
+            handler: 'saveChanges'
+        }, {
+            xtype: 'button',
             iconCls: 'x-fa fa-plus',
-            tooltip: Shared.get(Shared.common.add),
+            ui: 'action',
+            text: Shared.get(Shared.common.add),
             handler: 'add'
         }]
 });

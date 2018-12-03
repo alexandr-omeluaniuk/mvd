@@ -25,12 +25,16 @@ package org.ss.mvd.repository;
 
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.rest.core.annotation.RepositoryRestResource;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.ss.mvd.entity.CaseType;
 
 /**
  * Case types.
  * @author ss
  */
-@RepositoryRestResource(collectionResourceRel = "casetypes", path = "casetype")
+@RepositoryRestResource(collectionResourceRel = "casetype", path = "casetype")
 public interface CaseTypeRepository extends CrudRepository<CaseType, Long> {
+    @PreAuthorize("permitAll()")
+    @Override
+    public <S extends CaseType> S save(S s);
 }

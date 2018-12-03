@@ -33,13 +33,16 @@ Ext.define('MVD.model.CaseType', {
         }, {
             name: 'daysForNotification',
             type: 'int'
+        }, {
+            name: 'periodOfExecution',
+            type: 'int'
         }],
     proxy: {
         type: 'rest',
         url: '/rest/casetype',
         reader: {
             type: 'json',
-            rootProperty: '_embedded.casetypes'
+            rootProperty: '_embedded.casetype'
         }
     }
 });

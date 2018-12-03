@@ -27,9 +27,14 @@ Ext.define('MVD.view.casetype.CaseTypeViewController', {
     alias: 'controller.casetypeviewcontroller',
     add: function (btn) {
         var store = this.getView().down('grid').getStore();
-        var caseType = Ext.create('MVD.model.CaseType', {
-            name: ''
-        });
-        caseType.save();
+        store.add(Ext.create('MVD.model.CaseType', {
+            id: null,
+            name: '',
+            periodOfExecution: 1
+        }));
+    },
+    saveChanges: function () {
+        var store = this.getView().down('grid').getStore();
+        store.sync();
     }
 });
