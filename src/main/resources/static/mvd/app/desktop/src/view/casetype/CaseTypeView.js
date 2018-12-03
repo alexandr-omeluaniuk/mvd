@@ -22,8 +22,10 @@
  * THE SOFTWARE.
  */
 
+/* global Shared */
+
 Ext.define('MVD.view.casetype.CaseTypeView', {
-    extend: 'Ext.grid.Grid',
+    extend: 'Ext.Panel',
     xtype: 'casetypeview',
     alias: 'widget.casetypeview',
     requires: [
@@ -38,23 +40,35 @@ Ext.define('MVD.view.casetype.CaseTypeView', {
     viewModel: {
         type: 'casetypeviewmodel'
     },
-    plugins: {
-        gridcellediting: {
-            selectOnEdit: true
-        }
+    bind: {
+        title: '{title}'
     },
-    selectable: {
-        rows: false,
-        cells: true
-    },
-    store: {
-        type: 'casetype',
-        autoLoad: true
-    },
-    columns: [{
-            text: 'Name',
-            flex: 1,
-            dataIndex: 'name',
-            editable: true
+    layout: 'fit',
+    items: [{
+            xtype: 'grid',
+            plugins: {
+                gridcellediting: {
+                    selectOnEdit: true
+                }
+            },
+            selectable: {
+                rows: false,
+                cells: true
+            },
+            store: {
+                type: 'casetype',
+                autoLoad: true
+            },
+            columns: [{
+                    text: Shared.get(Shared.common.name),
+                    flex: 1,
+                    dataIndex: 'name',
+                    editable: true
+                }]
+        }],
+    tools: [{
+            iconCls: 'x-fa fa-plus',
+            tooltip: Shared.get(Shared.common.add),
+            handler: 'add'
         }]
 });

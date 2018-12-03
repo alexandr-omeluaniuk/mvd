@@ -10,3 +10,6 @@ spring:
     url: jdbc:mysql://localhost:3306/mvd_dev?useSSL=false
     username: mvd
     password: mvd
+  data: 
+    rest:
+      basePath: /rest

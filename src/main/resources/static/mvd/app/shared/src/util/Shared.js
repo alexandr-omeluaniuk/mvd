@@ -6,7 +6,7 @@ Ext.define('MVD.util.Shared', {
     },
     installAppEvent: null,
     lang: 'en',
-    cookieKey: 'app-lang',
+    cookieKey: 'mvd-lang',
     defineStartLanguage: function () {
         var cookieLang = MVD.util.Shared.getCookie(MVD.util.Shared.cookieKey);
         if (!cookieLang) {
@@ -68,6 +68,16 @@ Ext.define('MVD.util.Shared', {
         caseTypes: {
             en: 'Case types',
             ru: 'Типы служебных документов'
+        }
+    },
+    common: {
+        name: {
+            en: 'Name',
+            ru: 'Название'
+        },
+        add: {
+            en: 'Add',
+            ru: 'Добавить'
         }
     }
     // ========================================================================

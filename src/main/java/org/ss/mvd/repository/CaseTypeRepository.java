@@ -28,9 +28,9 @@ import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 import org.ss.mvd.entity.CaseType;
 
 /**
- *
+ * Case types.
  * @author ss
  */
-@RepositoryRestResource(collectionResourceRel = "doctype", path = "doctype")
-public interface DocumentTypeRepository extends CrudRepository<CaseType, Long> {
+@RepositoryRestResource(collectionResourceRel = "casetypes", path = "casetype")
+public interface CaseTypeRepository extends CrudRepository<CaseType, Long> {
 }

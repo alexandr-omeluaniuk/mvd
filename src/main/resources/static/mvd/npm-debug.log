@@ -1,0 +1,47 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/usr/bin/node',
+1 verbose cli   '/usr/bin/npm',
+1 verbose cli   '--registry',
+1 verbose cli   'https://sencha.myget.org/F/community/npm/',
+1 verbose cli   'whoami' ]
+2 info using npm@3.5.2
+3 info using node@v8.10.0
+4 verbose request uri https://sencha.myget.org/F/community/npm/-/whoami
+5 verbose request no auth needed
+6 info attempt registry request try #1 at 13:16:16
+7 verbose request using bearer token for auth
+8 verbose request id f330cdf2354823d6
+9 http request GET https://sencha.myget.org/F/community/npm/-/whoami
+10 info retry will retry, error on last attempt: Error: tunneling socket could not be established, statusCode=400
+11 info attempt registry request try #2 at 13:16:26
+12 verbose request using bearer token for auth
+13 http request GET https://sencha.myget.org/F/community/npm/-/whoami
+14 info retry will retry, error on last attempt: Error: tunneling socket could not be established, statusCode=400
+15 info attempt registry request try #3 at 13:17:26
+16 verbose request using bearer token for auth
+17 http request GET https://sencha.myget.org/F/community/npm/-/whoami
+18 verbose stack Error: tunneling socket could not be established, statusCode=400
+18 verbose stack     at ClientRequest.onConnect (/usr/share/npm/node_modules/request/node_modules/tunnel-agent/index.js:163:19)
+18 verbose stack     at Object.onceWrapper (events.js:319:30)
+18 verbose stack     at emitThree (events.js:136:13)
+18 verbose stack     at ClientRequest.emit (events.js:217:7)
+18 verbose stack     at Socket.socketOnData (_http_client.js:472:11)
+18 verbose stack     at emitOne (events.js:116:13)
+18 verbose stack     at Socket.emit (events.js:211:7)
+18 verbose stack     at addChunk (_stream_readable.js:263:12)
+18 verbose stack     at readableAddChunk (_stream_readable.js:250:11)
+18 verbose stack     at Socket.Readable.push (_stream_readable.js:208:10)
+19 verbose cwd /home/ss/Work/opensource/mvd/src/main/resources/static/mvd
+20 error Linux 4.15.0-39-generic
+21 error argv "/usr/bin/node" "/usr/bin/npm" "--registry" "https://sencha.myget.org/F/community/npm/" "whoami"
+22 error node v8.10.0
+23 error npm  v3.5.2
+24 error code ECONNRESET
+25 error network tunneling socket could not be established, statusCode=400
+26 error network This is most likely not a problem with npm itself
+26 error network and is related to network connectivity.
+26 error network In most cases you are behind a proxy or have bad network settings.
+26 error network
+26 error network If you are behind a proxy, please make sure that the
+26 error network 'proxy' config is set properly.  See: 'npm help config'
+27 verbose exit [ 1, true ]

@@ -28,13 +28,5 @@ Ext.define('MVD.store.CaseType', {
         'Ext.data.proxy.Rest'
     ],
     alias: 'store.casetype',
-    model: 'MVD.model.CaseType',
-    proxy: {
-        type: 'rest',
-        url: '/rest-api/user/case-types',
-        reader: {
-            type: 'json',
-            rootProperty: 'items'
-        }
-    }
+    model: 'MVD.model.CaseType'
 });

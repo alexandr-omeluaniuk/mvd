@@ -22,7 +22,12 @@
  * THE SOFTWARE.
  */
 
+/* global Shared */
+
 Ext.define('MVD.view.casetype.CaseTypeViewModel', {
     extend: 'Ext.app.ViewModel',
-    alias: 'viewmodel.casetypeviewmodel'
+    alias: 'viewmodel.casetypeviewmodel',
+    data: {
+        title: Shared.get(Shared.nav.caseTypes)
+    }
 });

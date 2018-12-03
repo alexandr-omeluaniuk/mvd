@@ -79,6 +79,9 @@ module.exports = async function (env) {
       disableHostCheck: false,
       compress: isProd,
       inline: !isProd,
+      proxy: {
+        '/rest': 'http://localhost:9090'
+      },
       stats: {
         entrypoints: false,
         assets: false,
