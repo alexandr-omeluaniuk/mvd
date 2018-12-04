@@ -21,7 +21,7 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package org.ss.mvd.security;
+package org.ss.mvd.configuration;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
@@ -35,7 +35,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
  * @author ss
  */
 @EnableWebSecurity
-public class WebSecurityConfig implements WebMvcConfigurer {
+public class WebAppConfig implements WebMvcConfigurer {
     @Bean
     public BCryptPasswordEncoder passwordEncoder() {
         BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder();
@@ -46,7 +46,7 @@ public class WebSecurityConfig implements WebMvcConfigurer {
         registry.addResourceHandler("/**").addResourceLocations("classpath:/static/mvd/");
         if (!registry.hasMappingForPattern("/browser/**")) {
             registry.addResourceHandler("/browser/**").addResourceLocations(
-                    "classpath:/META-INF/resources/webjars/hal-browser/");
+                    "classpath:/META-INF/spring-data-rest/hal-browser/");
         }
     }
     @Bean

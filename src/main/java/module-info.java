@@ -39,4 +39,5 @@ module org.ss.mvd {
     requires spring.security.config;
     requires spring.security.core;
     requires spring.security.web;
+    requires spring.data.rest.webmvc;
 }

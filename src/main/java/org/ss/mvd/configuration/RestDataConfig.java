@@ -21,16 +21,32 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package org.ss.mvd.repository;
+package org.ss.mvd.configuration;
 
-import org.springframework.data.repository.CrudRepository;
-import org.springframework.data.rest.core.annotation.RepositoryRestResource;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.data.rest.core.config.RepositoryRestConfiguration;
+import org.springframework.data.rest.core.mapping.RepositoryDetectionStrategy;
+import org.springframework.data.rest.webmvc.config.RepositoryRestConfigurer;
+import org.springframework.data.rest.webmvc.config.RepositoryRestConfigurerAdapter;
 import org.ss.mvd.entity.CaseType;
 
 /**
- * Case types.
+ * Spring REST data configuration.
  * @author ss
  */
-@RepositoryRestResource(collectionResourceRel = "casetype", path = "casetype")
-public interface CaseTypeRepository extends CrudRepository<CaseType, Long> {
+@Configuration
+public class RestDataConfig {
+    @Bean
+    public RepositoryRestConfigurer repositoryRestConfigurer() {
+        return new RepositoryRestConfigurerAdapter() {
+            @Override
+            public void configureRepositoryRestConfiguration(RepositoryRestConfiguration config) {
+                config.setBasePath("/rest");
+                config.setRepositoryDetectionStrategy(
+                        RepositoryDetectionStrategy.RepositoryDetectionStrategies.ANNOTATED);
+                config.exposeIdsFor(CaseType.class);
+            }
+        };
+    }
 }

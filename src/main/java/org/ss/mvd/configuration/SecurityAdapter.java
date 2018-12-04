@@ -21,7 +21,7 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package org.ss.mvd.security;
+package org.ss.mvd.configuration;
 
 import javax.sql.DataSource;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -43,7 +43,9 @@ public class SecurityAdapter extends WebSecurityConfigurerAdapter {
     private DataSource dataSource;
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        http.authorizeRequests().anyRequest().authenticated().and()
+        http.csrf().disable().authorizeRequests().anyRequest().authenticated().and()
+//                .authorizeRequests().antMatchers("/rest/**")
+//                .access("hasRole('ADMIN')").and()
                 .formLogin().permitAll().and()
                 .logout().invalidateHttpSession(true);
     }
