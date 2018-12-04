@@ -26,7 +26,7 @@ Ext.define('MVD.model.CaseType', {
     extend: 'MVD.model.Base',
     fields: [{
             name: 'id',
-            type: 'int'
+            type: 'number'
         }, {
             name: 'name',
             type: 'string'
@@ -43,6 +43,10 @@ Ext.define('MVD.model.CaseType', {
         reader: {
             type: 'json',
             rootProperty: '_embedded.casetype'
+        },
+        writer: {
+            type: 'json',
+            writeAllFields: true
         }
     }
 });
