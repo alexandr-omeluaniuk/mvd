@@ -47,6 +47,8 @@ Ext.define('MVD.view.casetype.CaseTypeView', {
     layout: 'fit',
     items: [{
             xtype: 'grid',
+            modelValidation: true,
+            markDirty: true,
             platformConfig: {
                 desktop: {
                     plugins: {
@@ -76,7 +78,9 @@ Ext.define('MVD.view.casetype.CaseTypeView', {
                     editor: {
                         xtype: 'textfield',
                         allowBlank: false,
-                        required: true
+                        required: true,
+                        minLength: 1,
+                        maxLength: 100
                     }
                 }, {
                     text: Shared.get(Shared.caseType.periodOfExecution),
@@ -96,6 +100,14 @@ Ext.define('MVD.view.casetype.CaseTypeView', {
                     editor: {
                         xtype: 'numberfield',
                         minValue: 0
+                    }
+                }, {
+                    text: '',
+                    width: 50,
+                    cell: {
+                        tools: {
+                            close: 'delete'
+                        }
                     }
                 }]
         }],

@@ -7,6 +7,6 @@ spring:
     hibernate:
       ddl-auto: update
   datasource:
-    url: jdbc:mysql://localhost:3306/mvd_dev?useSSL=false
+    url: jdbc:mysql://localhost:3306/mvd_dev?useSSL=false&characterEncoding=utf-8&useUnicode=true
     username: mvd
     password: mvd

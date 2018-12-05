@@ -82,6 +82,18 @@ Ext.define('MVD.util.Shared', {
         saveChanges: {
             en: 'Save changes',
             ru: 'Сохранить изменения'
+        },
+        changesSaved: {
+            en: 'Changes was saved successfully',
+            ru: 'Ваши изменения были успешно сохранены'
+        },
+        recordAdded: {
+            en: 'A new record was added successfully',
+            ru: 'Новая запись успешно добавлена'
+        },
+        recordDeleted: {
+            en: 'The record was removed successfully',
+            ru: 'Запись успешно удалена'
         }
     },
     caseType: {
@@ -92,6 +104,10 @@ Ext.define('MVD.util.Shared', {
         periodOfExecution: {
             en: 'Period of execution, days',
             ru: 'Срок исполнения документа, в днях'
+        },
+        nameTemplate: {
+            en: 'Case type name',
+            ru: 'Название типа служебного документа'
         }
     }
     // ========================================================================

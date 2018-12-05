@@ -5,6 +5,7 @@
   "framework": "ext",
   "template": "universalmodern",
   "indexHtmlPath": "index.html",
+  "locale": "ru",
   "requires": [ 
     "font-awesome"
   ],

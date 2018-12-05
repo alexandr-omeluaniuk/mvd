@@ -22,19 +22,62 @@
  * THE SOFTWARE.
  */
 
+/* global Shared */
+
 Ext.define('MVD.view.casetype.CaseTypeViewController', {
     extend: 'Ext.app.ViewController',
     alias: 'controller.casetypeviewcontroller',
+    requires: [
+        'Ext.MessageBox',
+        'Ext.Toast'
+    ],
     add: function (btn) {
         var store = this.getView().down('grid').getStore();
-        store.add(Ext.create('MVD.model.CaseType', {
+        var newRecord = Ext.create('MVD.model.CaseType', {
             id: null,
-            name: '',
+            name: '<' + Shared.get(Shared.caseType.nameTemplate) + '>',
             periodOfExecution: 1
-        }));
+        });
+        newRecord.set('id', null);
+        newRecord.save({
+            callback: function () {
+                Ext.toast({
+                    message: Shared.get(Shared.common.recordAdded),
+                    timeout: 1000
+                });
+                store.load();
+            }
+        });
+    },
+    delete: function (view, event) {
+        var store = this.getView().down('grid').getStore();
+        var record = event.record;
+        record.erase({
+            success: function () {
+                Ext.toast({
+                    message: Shared.get(Shared.common.recordDeleted),
+                    timeout: 1000
+                });
+                store.load();
+            }
+        });
     },
     saveChanges: function () {
         var store = this.getView().down('grid').getStore();
-        store.sync();
+        store.each(function (r) {
+            var id = r.data.id;
+            if (typeof id === 'string') {
+                r.set('id', null);
+            }
+        });
+        store.sync({
+            success: function () {
+                Ext.toast({
+                    message: Shared.get(Shared.common.changesSaved),
+                    timeout: 1000
+                });
+                store.load();
+            }
+        });
     }
 });

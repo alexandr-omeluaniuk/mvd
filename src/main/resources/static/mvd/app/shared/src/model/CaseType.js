@@ -24,6 +24,9 @@
 
 Ext.define('MVD.model.CaseType', {
     extend: 'MVD.model.Base',
+    requires: [
+        'Ext.data.validator.Length'
+    ],
     fields: [{
             name: 'id',
             type: 'number'
@@ -37,6 +40,9 @@ Ext.define('MVD.model.CaseType', {
             name: 'periodOfExecution',
             type: 'int'
         }],
+    validators: [
+        { field: 'name', type: 'length', min: 1, max: 100 }
+    ],
     proxy: {
         type: 'rest',
         url: '/rest/casetype',
