@@ -5,7 +5,8 @@ Ext.define('MVD.view.main.MainViewModel', {
     alias: 'viewmodel.mainviewmodel',
     requires: [
         'MVD.util.Shared',
-        'MVD.view.casetype.CaseTypeView'
+        'MVD.view.casetype.CaseTypeView',
+        'MVD.view.users.UsersView'
     ],
     data: {
         name: Shared.get(Shared.title),
@@ -38,7 +39,8 @@ Ext.define('MVD.view.main.MainViewModel', {
                     {"text": Shared.get(Shared.nav.dashboard), "iconCls": "x-fa fa-th-large", "xtype": "homeview", "leaf": true},
                     {"text": Shared.get(Shared.nav.cases), "iconCls": "x-fa fa-files-o", "xtype": "personnelview", "leaf": true},
                     {"text": Shared.get(Shared.nav.settings), "iconCls": "x-fa fa-cogs", "leaf": false, expanded: true, children: [
-                            {"text": Shared.get(Shared.nav.caseTypes), "iconCls": "x-fa fa-cog", "xtype": "casetypeview", "leaf": true}
+                            {"text": Shared.get(Shared.nav.caseTypes), "iconCls": "x-fa fa-cog", "xtype": "casetypeview", "leaf": true},
+                            {"text": Shared.get(Shared.nav.users), "iconCls": "x-fa fa-users", "xtype": "usersview", "leaf": true}
                     ]}
                 ]
             }

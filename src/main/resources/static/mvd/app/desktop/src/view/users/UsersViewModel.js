@@ -1,4 +1,4 @@
-/*
+/* 
  * The MIT License
  *
  * Copyright 2018 ss.
@@ -21,24 +21,13 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-module org.ss.mvd {
-    requires java.persistence;
-    requires java.validation;
-    requires java.sql;
-    requires tomcat.embed.core;
-    requires spring.beans;
-    requires spring.web;
-    requires spring.core;
-    requires spring.context;
-    requires spring.webmvc;
-    requires spring.boot;
-    requires spring.boot.autoconfigure;
-    requires spring.data.commons;
-    requires spring.data.rest.core;
-    requires spring.data.jpa;
-    requires spring.security.config;
-    requires spring.security.core;
-    requires spring.security.web;
-    requires spring.data.rest.webmvc;
-    requires jackson.annotations;
-}
+
+/* global Shared */
+
+Ext.define('MVD.view.users.UsersViewModel', {
+    extend: 'Ext.app.ViewModel',
+    alias: 'viewmodel.usersviewmodel',
+    data: {
+        title: Shared.get(Shared.nav.users)
+    }
+});

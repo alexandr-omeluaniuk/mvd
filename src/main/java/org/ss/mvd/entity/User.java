@@ -23,6 +23,7 @@
  */
 package org.ss.mvd.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -54,21 +55,25 @@ public class User implements Serializable {
     /** Email. */
     @Email(message = "*Please provide a valid Email")
     @NotEmpty(message = "*Please provide an email")
-    @Column(name = "email")
+    @Size(max = 255)
+    @Column(name = "email", length = 255)
     private String email;
     /** Password. */
+    @JsonIgnore
     @Size(min = 5, message = "*Your password must have at least 5 characters")
     @NotEmpty(message = "*Please provide your password")
-    @Column(name = "password", nullable = false)
+    @Column(name = "password", nullable = false, length = 255)
     private String password;
     /** First name. */
     @NotEmpty(message = "*Please provide your first name")
-    @Column(name = "firstname", nullable = false)
+    @Size(max = 255)
+    @Column(name = "firstname", nullable = false, length = 255)
     private String firstname;
     /** Last name. */
+    @Size(max = 255)
     @NotEmpty(message = "*Please provide your last name")
-    @Column(name = "lastname", nullable = false)
-    private String lastName;
+    @Column(name = "lastname", nullable = false, length = 255)
+    private String lastname;
     /** Is active. */
     @Column(name = "is_active", nullable = false)
     private boolean active;
@@ -128,14 +133,14 @@ public class User implements Serializable {
     /**
      * @return the lastName
      */
-    public String getLastName() {
-        return lastName;
+    public String getLastname() {
+        return lastname;
     }
     /**
-     * @param lastName the lastName to set
+     * @param lastname the lastName to set
      */
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
+    public void setLastname(String lastname) {
+        this.lastname = lastname;
     }
     /**
      * @return the active

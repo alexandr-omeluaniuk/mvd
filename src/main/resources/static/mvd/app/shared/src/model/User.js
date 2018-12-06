@@ -1,4 +1,4 @@
-/*
+/* 
  * The MIT License
  *
  * Copyright 2018 ss.
@@ -21,16 +21,46 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package org.ss.mvd.repository;
 
-import org.springframework.data.repository.CrudRepository;
-import org.springframework.data.rest.core.annotation.RepositoryRestResource;
-import org.ss.mvd.entity.CaseType;
-
-/**
- * Case types.
- * @author ss
- */
-@RepositoryRestResource(collectionResourceRel = "casetype", path = "casetype")
-public interface CaseTypeRepository extends CrudRepository<CaseType, Long> {
-}
+Ext.define('MVD.model.User', {
+    extend: 'MVD.model.Base',
+    requires: [
+        'Ext.data.validator.Length'
+    ],
+    fields: [{
+            name: 'id',
+            type: 'number'
+        }, {
+            name: 'email',
+            type: 'string'
+        }, {
+            name: 'password',
+            type: 'string'
+        }, {
+            name: 'firstname',
+            type: 'string'
+        }, {
+            name: 'lastname',
+            type: 'string'
+        }, {
+            name: 'active',
+            type: 'boolean'
+        }],
+    validators: [
+        { field: 'email', type: 'length', min: 1, max: 100 },
+        { field: 'firstname', type: 'length', min: 1, max: 100 },
+        { field: 'lastname', type: 'length', min: 1, max: 100 }
+    ],
+    proxy: {
+        type: 'rest',
+        url: '/rest/user',
+        reader: {
+            type: 'json',
+            rootProperty: '_embedded.user'
+        },
+        writer: {
+            type: 'json',
+            writeAllFields: true
+        }
+    }
+});

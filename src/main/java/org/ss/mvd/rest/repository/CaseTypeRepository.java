@@ -21,24 +21,16 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-module org.ss.mvd {
-    requires java.persistence;
-    requires java.validation;
-    requires java.sql;
-    requires tomcat.embed.core;
-    requires spring.beans;
-    requires spring.web;
-    requires spring.core;
-    requires spring.context;
-    requires spring.webmvc;
-    requires spring.boot;
-    requires spring.boot.autoconfigure;
-    requires spring.data.commons;
-    requires spring.data.rest.core;
-    requires spring.data.jpa;
-    requires spring.security.config;
-    requires spring.security.core;
-    requires spring.security.web;
-    requires spring.data.rest.webmvc;
-    requires jackson.annotations;
+package org.ss.mvd.rest.repository;
+
+import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.rest.core.annotation.RepositoryRestResource;
+import org.ss.mvd.entity.CaseType;
+
+/**
+ * Case types.
+ * @author ss
+ */
+@RepositoryRestResource(collectionResourceRel = "casetype", path = "casetype")
+public interface CaseTypeRepository extends CrudRepository<CaseType, Long> {
 }

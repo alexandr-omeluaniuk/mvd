@@ -68,6 +68,10 @@ Ext.define('MVD.util.Shared', {
         caseTypes: {
             en: 'Case types',
             ru: 'Типы служебных документов'
+        },
+        users: {
+            en: 'Users',
+            ru: 'Пользователи'
         }
     },
     common: {
@@ -108,6 +112,20 @@ Ext.define('MVD.util.Shared', {
         nameTemplate: {
             en: 'Case type name',
             ru: 'Название типа служебного документа'
+        }
+    },
+    users: {
+        add: {
+            en: 'Add new user',
+            ru: 'Добавить нового пользователя'
+        },
+        firstname: {
+            en: 'First name',
+            ru: 'Имя'
+        },
+        lastname: {
+            en: 'Last name',
+            ru: 'Фамилия'
         }
     }
     // ========================================================================
