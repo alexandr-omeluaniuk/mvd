@@ -59,6 +59,10 @@ Ext.define('MVD.view.users.UsersView', {
                     text: Shared.get(Shared.users.lastname),
                     flex: 1,
                     dataIndex: 'lastname'
+                }, {
+                    text: Shared.get(Shared.common.email),
+                    flex: 1,
+                    dataIndex: 'email'
                 }]
         }],
     tools: [{

@@ -98,6 +98,10 @@ Ext.define('MVD.util.Shared', {
         recordDeleted: {
             en: 'The record was removed successfully',
             ru: 'Запись успешно удалена'
+        },
+        email: {
+            en: 'Email address',
+            ru: 'Адрес электронной почты'
         }
     },
     caseType: {
