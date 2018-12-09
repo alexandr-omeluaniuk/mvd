@@ -130,6 +130,14 @@ Ext.define('MVD.util.Shared', {
         lastname: {
             en: 'Last name',
             ru: 'Фамилия'
+        },
+        username: {
+            en: 'Username',
+            ru: 'Имя пользователя'
+        },
+        password: {
+            en: 'Password',
+            ru: 'Пароль'
         }
     }
     // ========================================================================

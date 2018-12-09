@@ -63,6 +63,17 @@ Ext.define('MVD.view.users.UsersView', {
                     text: Shared.get(Shared.common.email),
                     flex: 1,
                     dataIndex: 'email'
+                }, {
+                    text: '',
+                    width: 'auto',
+                    cell: {
+                        tools: [
+                            {
+                                iconCls: 'x-fa fa-edit',
+                                handler: 'editUser'
+                            }
+                        ]
+                    }
                 }]
         }],
     tools: [{

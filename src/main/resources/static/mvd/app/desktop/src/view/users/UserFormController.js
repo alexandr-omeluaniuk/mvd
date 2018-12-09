@@ -22,22 +22,22 @@
  * THE SOFTWARE.
  */
 
-/* global Shared */
-
-Ext.define('MVD.view.users.UsersViewController', {
+Ext.define('MVD.view.users.UserFormController', {
     extend: 'Ext.app.ViewController',
-    alias: 'controller.usersviewcontroller',
+    alias: 'controller.userformcontroller',
     requires: [
-        'MVD.view.users.UserForm'
+        
     ],
-    addUser: function (view) {
-        var form = Ext.create('MVD.view.users.UserForm', {
-            title: Shared.get(Shared.users.add)
-        });
-        form.show();
+    onCancel: function () {
+        this.getView().hide();
     },
-    editUser: function (grid, info) {
-        var record = info.record;
-        console.log(record);
+    onOK: function () {
+        var dialog = this.getView();
+        var form = this.lookup('form');
+        if (form.validate()) {
+            var newRecord = Ext.create('MVD.model.User', form.getValues());
+            newRecord.set('id', null);
+            console.log(newRecord);
+        }
     }
 });
